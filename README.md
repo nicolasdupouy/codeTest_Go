@@ -42,3 +42,7 @@ Test all packages
 
     $ go test ./...
     
+## Benchmarking
+
+    $ go test ./gopher -bench=.
+    

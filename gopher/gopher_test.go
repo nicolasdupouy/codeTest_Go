@@ -41,3 +41,15 @@ func TestPluralWithStringsBuilder(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkPlural(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Plural("gopher", 3)
+	}
+}
+
+func BenchmarkPluralWithStringsBuilder(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PluralWithStringsBuilder("gopher", 3)
+	}
+}

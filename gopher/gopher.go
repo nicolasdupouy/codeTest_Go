@@ -1,6 +1,8 @@
 package gopher
 
-import "strings"
+import (
+	"strings"
+)
 
 func Plural(s string, count int) string {
 	if count == 1 {
