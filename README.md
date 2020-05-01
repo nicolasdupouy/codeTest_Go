@@ -46,3 +46,9 @@ Test all packages
 
     $ go test ./gopher -bench=.
     
+## Race conditions automatic detection
+Can be done with **-race** on multiple commands:
+
+    $ go test ./... -race
+    $ go run -race ./hello/main.go
+    $ go build -race ./hello/main.go
