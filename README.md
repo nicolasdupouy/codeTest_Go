@@ -32,3 +32,13 @@ Compile for MacOS when on Debian Linux
 Or compile for Linux amd64:
 
     $ GOOS=linux GOARCH=amd64 go build -o bin/ ./...
+    
+## Test
+Test a package
+
+    $ go test ./gopher
+    
+Test all packages
+
+    $ go test ./...
+    
