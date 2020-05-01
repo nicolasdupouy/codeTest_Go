@@ -52,3 +52,17 @@ Can be done with **-race** on multiple commands:
     $ go test ./... -race
     $ go run -race ./hello/main.go
     $ go build -race ./hello/main.go
+    
+## Tracing
+While running
+
+    $ go tool pprof http://localhost:8080/debug/pprof/profile
+    
+## Tracing with benchmarks
+Execute the benchmarks with the options **-cpuprofile**, **-memprofile**, **-blockprofile**  or **-mutexprofile**.
+
+    $ go test -bench=. -cpuprofile=./bin/cpuprofile.out gopher/gopher_test.go gopher/gopher.go
+
+Explore the statictics with **pprof**:
+
+    $ go tool pprof -http=:5000 ./bin/cpuprofile.out

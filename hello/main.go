@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"net/http/pprof"
 )
 
 func main() {
@@ -12,6 +13,11 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/", ServeHTTP)
+
+	router.HandleFunc("/debug/pprof/", pprof.Index)
+	router.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
+	router.HandleFunc("/debug/pprof/profile", pprof.Profile)
+	router.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
 
 	server := http.Server{
 		Addr:    net.JoinHostPort("", "8080"),
